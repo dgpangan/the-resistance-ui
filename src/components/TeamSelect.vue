@@ -11,7 +11,7 @@
         <span v-if="player.id === playerId">(You)</span>
       </li>
     </ul>
-    <button @click="closeDialog()">Done</button>
+    <button @click="submitSelection()">Done</button>
   </dialog>
 </template>
 
@@ -35,8 +35,9 @@ export default {
       return this.players.filter(player => player.selected).length;
     },
 
-    closeDialog() {
-      this.setDialog('');
+    submitSelection() {
+      // TODO: Make sure that enough number of players were selected.
+      this.setDialog('team-vote');
     }
   }
 }
