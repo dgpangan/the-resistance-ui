@@ -1,6 +1,6 @@
 <template>
   <dialog open>
-    <h2>Select X members that you would like to go on this mission:</h2>
+    <h2>Select {{ this.currentMission.playerCount }} members that you would like to go on this mission:</h2>
     <ul>
       <li
         v-for="player in players"
@@ -11,7 +11,11 @@
         <span v-if="player.id === playerId">(You)</span>
       </li>
     </ul>
-    <button @click="submitSelection()">Done</button>
+    <button
+      @click="submitSelection()"
+      :disabled="this.currentMission.playerCount > this.selectedPlayers()">
+      Done
+    </button>
   </dialog>
 </template>
 
@@ -26,7 +30,7 @@ export default {
   methods: {
     selectPlayer(id) {
       const player = this.getPlayer(id);
-      if (this.selectedPlayers() >= this.currentMission.playerCount && !player.selected) {
+      if (this.selectedPlayers() >= this.playerCount && !player.selected) {
         return false;
       }
       player.selected = !player.selected;

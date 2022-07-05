@@ -32,7 +32,8 @@ export default {
         { id: 3, name: 'Eman',    isResistance: false,  selected: false, teamVote: '',  missonVote: '' },
         { id: 4, name: 'Gran',    isResistance: false,  selected: false, teamVote: '',  missonVote: '' },
       ],
-      playerId: 0
+      playerId: 0,
+      playerInTurn: 0,
     }
   },
 
@@ -40,6 +41,7 @@ export default {
     return {
       players: this.players,
       playerId: this.playerId,
+      playerInTurn: this.playerInTurn,
       missions: this.missions,
       cancellations: this.cancellations,
       getPlayer: this.getPlayer,
