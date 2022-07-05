@@ -9,8 +9,7 @@
       <p>Your goal is to stop the resistance from succeeding in 3 of 5 missions. When voting fo a mission result, you can vote for either success or fail.</p>
       <h3>Spies in this game:</h3>
       <ul>
-        <li>Player 1 (You)</li>
-        <li>Player 2</li>
+        <li v-for="spy in spies" :key="spy.id">{{ spy.name }}</li>
       </ul>
     </div>
   </dialog>
@@ -18,10 +17,12 @@
 
 <script>
 export default {
+  inject: ['players'],
+
   data() {
     return {
       playerIsResistance: false,
-      spies: [ 'Player 1', 'Player 2' ]
+      spies: this.players.filter(player => player.isResistance === false)
     }
   }
 }

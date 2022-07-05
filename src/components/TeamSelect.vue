@@ -9,16 +9,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      players: [
-        { id: 0, name: 'Player 1', isResistance: true },
-        { id: 1, name: 'Player 2', isResistance: true },
-        { id: 2, name: 'Player 3', isResistance: true },
-        { id: 3, name: 'Player 4', isResistance: false },
-        { id: 4, name: 'Player 5', isResistance: false },
-      ]
-    }
-  }
+  inject: ['players']
 }
 </script>
