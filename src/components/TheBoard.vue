@@ -16,18 +16,7 @@
 
 <script>
 export default {
-  data() {
-    return {
-      missions: [
-        { playerCount: 2, status: '' },
-        { playerCount: 3, status: '' },
-        { playerCount: 2, status: '' },
-        { playerCount: 3, status: '' },
-        { playerCount: 3, status: '' },
-      ],
-      cancellations: 3
-    }
-  },
+  inject: ['missions', 'cancellations'],
   methods: {
     isMarked(id) {
       if (this.cancellations >= id) return 'marked';
@@ -35,3 +24,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .marked {
+    color: red;
+  }
+</style>

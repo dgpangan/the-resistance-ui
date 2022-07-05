@@ -14,7 +14,15 @@ export default {
 
   data() {
     return {
-      showDialog: 'card-draw',
+      showDialog: 'team-select',
+      missions: [
+        { playerCount: 2, status: '' },
+        { playerCount: 3, status: '' },
+        { playerCount: 2, status: '' },
+        { playerCount: 3, status: '' },
+        { playerCount: 3, status: '' },
+      ],
+      cancellations: 2,
       players: [
         { id: 0, name: 'Player 1', isResistance: true },
         { id: 1, name: 'Player 2', isResistance: true },
@@ -29,7 +37,9 @@ export default {
   provide() {
     return {
       players: this.players,
-      playerId: this.playerId
+      playerId: this.playerId,
+      missions: this.missions,
+      cancellations: this.cancellations
     }
   }
 }
