@@ -21,13 +21,15 @@ export default {
         { id: 2, name: 'Player 3', isResistance: true },
         { id: 3, name: 'Player 4', isResistance: false },
         { id: 4, name: 'Player 5', isResistance: false },
-      ]
+      ],
+      playerId: 3
     }
   },
 
   provide() {
     return {
-      players: this.players
+      players: this.players,
+      playerId: this.playerId
     }
   }
 }
