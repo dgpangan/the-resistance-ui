@@ -11,12 +11,13 @@
         <span v-if="player.id === playerId">(You)</span>
       </li>
     </ul>
+    <button @click="closeDialog()">Done</button>
   </dialog>
 </template>
 
 <script>
 export default {
-  inject: ['players', 'playerId', 'getPlayer', 'missions', 'getCurrentMission'],
+  inject: ['players', 'playerId', 'getPlayer', 'missions', 'getCurrentMission', 'setDialog'],
   data() {
     return {
       currentMission: this.getCurrentMission()
@@ -32,6 +33,10 @@ export default {
     },
      selectedPlayers() {
       return this.players.filter(player => player.selected).length;
+    },
+
+    closeDialog() {
+      this.setDialog('');
     }
   }
 }

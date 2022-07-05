@@ -41,7 +41,8 @@ export default {
       missions: this.missions,
       cancellations: this.cancellations,
       getPlayer: this.getPlayer,
-      getCurrentMission: this.getCurrentMission
+      getCurrentMission: this.getCurrentMission,
+      setDialog: this.setDialog
     }
   },
 
@@ -54,6 +55,10 @@ export default {
     getCurrentMission() {
       const mission = this.missions.filter(mission => mission.status === '');
       return mission[0];
+    },
+
+    setDialog(dialogName) {
+      this.showDialog = dialogName;
     }
   }
 }
