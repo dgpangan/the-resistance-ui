@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  inject: ['players', 'playerId'],
+  inject: ['players', 'playerId', 'getPlayer'],
 
   data() {
     return {
@@ -30,8 +30,7 @@ export default {
 
   methods: {
     playerIsResistance() {
-      const currentPlayer = this.players.filter(player => player.id === this.playerId);
-      return currentPlayer[0].isResistance;
+      return this.getPlayer(this.playerId).isResistance;
     }
   }
 }
