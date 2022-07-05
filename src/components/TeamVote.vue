@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  inject: ['players', 'playerId', 'playerInTurn', 'getPlayer'],
+  inject: ['players', 'playerId', 'playerInTurn', 'getPlayer', 'setDialog'],
   data() {
     return {
       selectedPlayers: this.players.filter(player => player.selected)
@@ -26,6 +26,7 @@ export default {
     setVote(vote) {
       const player = this.getPlayer(this.playerId);
       player.teamVote = vote;
+      this.setDialog('team-vote-results');
     }
   }
 }

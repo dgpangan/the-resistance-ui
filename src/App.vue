@@ -3,6 +3,7 @@
   <card-draw v-if="showDialog==='card-draw'"></card-draw>
   <team-select v-if="showDialog==='team-select'"></team-select>
   <team-vote v-if="showDialog==='team-vote'"></team-vote>
+  <team-vote-results v-if="showDialog==='team-vote-results'"></team-vote-results>
 </template>
 
 <script>
@@ -10,9 +11,10 @@ import TheBoard from './components/TheBoard.vue';
 import CardDraw from './components/CardDraw.vue';
 import TeamSelect from './components/TeamSelect.vue';
 import TeamVote from './components/TeamVote.vue';
+import TeamVoteResults from './components/TeamVoteResults.vue';
 
 export default {
-  components: { TheBoard, CardDraw, TeamSelect, TeamVote },
+  components: { TheBoard, CardDraw, TeamSelect, TeamVote, TeamVoteResults },
 
   data() {
     return {
@@ -27,10 +29,10 @@ export default {
       cancellations: 2,
       players: [
         { id: 0, name: 'Darren',  isResistance: true,   selected: false, teamVote: '',  missonVote: '' },
-        { id: 1, name: 'Clarisa', isResistance: true,   selected: false, teamVote: '',  missonVote: '' },
-        { id: 2, name: 'Shan',    isResistance: true,   selected: false, teamVote: '',  missonVote: '' },
-        { id: 3, name: 'Eman',    isResistance: false,  selected: false, teamVote: '',  missonVote: '' },
-        { id: 4, name: 'Gran',    isResistance: false,  selected: false, teamVote: '',  missonVote: '' },
+        { id: 1, name: 'Clarisa', isResistance: true,   selected: false, teamVote: 'approve',  missonVote: '' },
+        { id: 2, name: 'Shan',    isResistance: true,   selected: false, teamVote: 'approve',  missonVote: '' },
+        { id: 3, name: 'Eman',    isResistance: false,  selected: false, teamVote: 'reject',  missonVote: '' },
+        { id: 4, name: 'Gran',    isResistance: false,  selected: false, teamVote: 'reject',  missonVote: '' },
       ],
       playerId: 0,
       playerInTurn: 0,
