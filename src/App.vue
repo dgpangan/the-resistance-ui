@@ -16,11 +16,11 @@ export default {
     return {
       showDialog: 'team-select',
       missions: [
-        { playerCount: 2, status: '' },
-        { playerCount: 3, status: '' },
-        { playerCount: 2, status: '' },
-        { playerCount: 3, status: '' },
-        { playerCount: 3, status: '' },
+        { id: 0, playerCount: 2, status: 'success' },
+        { id: 1, playerCount: 3, status: '' },
+        { id: 2, playerCount: 2, status: '' },
+        { id: 3, playerCount: 3, status: '' },
+        { id: 4, playerCount: 3, status: '' },
       ],
       cancellations: 2,
       players: [
@@ -40,7 +40,8 @@ export default {
       playerId: this.playerId,
       missions: this.missions,
       cancellations: this.cancellations,
-      getPlayer: this.getPlayer
+      getPlayer: this.getPlayer,
+      getCurrentMission: this.getCurrentMission
     }
   },
 
@@ -48,6 +49,11 @@ export default {
     getPlayer(id) {
       const player = this.players.filter(player => player.id === id);
       return player[0];
+    },
+
+    getCurrentMission() {
+      const mission = this.missions.filter(mission => mission.status === '');
+      return mission[0];
     }
   }
 }

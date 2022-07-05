@@ -16,11 +16,18 @@
 
 <script>
 export default {
-  inject: ['players', 'playerId', 'getPlayer'],
+  inject: ['players', 'playerId', 'getPlayer', 'missions', 'getCurrentMission'],
+  data() {
+    return {
+      currentMission: this.getCurrentMission()
+    }
+  },
   methods: {
     selectPlayer(id) {
       const player = this.getPlayer(id);
-      if (this.selectedPlayers() >= 2 && !player.selected) return false;
+      if (this.selectedPlayers() >= this.currentMission.playerCount && !player.selected) {
+        return false;
+      }
       player.selected = !player.selected;
     },
      selectedPlayers() {
