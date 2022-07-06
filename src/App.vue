@@ -17,43 +17,33 @@ import TeamVoteResults from './components/TeamVoteResults.vue';
 import MissionVote from './components/MissonVote.vue';
 import MissionVoteResults from './components/MissionVoteResults.vue';
 
+import { MISSIONS, PLAYERS, DIALOG, RECALLS, PLAYER_ID, PLAYER_IN_TURN } from './constants.js';
+
 export default {
   components: { TheBoard, CardDraw, TeamSelect, TeamVote, TeamVoteResults, MissionVote, MissionVoteResults },
 
   data() {
     return {
-      showDialog: '',
-      missions: [
-        { id: 0, playerCount: 2, status: '' },
-        { id: 1, playerCount: 3, status: '' },
-        { id: 2, playerCount: 2, status: '' },
-        { id: 3, playerCount: 3, status: '' },
-        { id: 4, playerCount: 3, status: '' },
-      ],
-      recalls: 0,
-      players: [
-        { id: 0, name: 'Darren',  isResistance: false,  selected: false, teamVote: '',        missionVote: ''        },
-        { id: 1, name: 'Clarisa', isResistance: true,   selected: false, teamVote: 'approve', missionVote: 'success' },
-        { id: 2, name: 'Shan',    isResistance: true,   selected: false, teamVote: 'approve', missionVote: 'success' },
-        { id: 3, name: 'Eman',    isResistance: true,   selected: false, teamVote: 'reject',  missionVote: 'success' },
-        { id: 4, name: 'Gran',    isResistance: false,  selected: false, teamVote: 'reject',  missionVote: 'fail'    },
-      ],
-      playerId: 0,
-      playerInTurn: 0,
+      players:       PLAYERS,
+      missions:      MISSIONS,
+      showDialog:    DIALOG,
+      recalls:       RECALLS,
+      playerId:      PLAYER_ID,
+      playerInTurn:  PLAYER_IN_TURN,
     }
   },
 
   provide() {
     return {
-      players: this.players,
-      playerId: this.playerId,
-      playerInTurn: this.playerInTurn,
-      missions: this.missions,
-      recalls: this.recalls,
-      getPlayer: this.getPlayer,
+      players:       this.players,
+      playerId:      this.playerId,
+      playerInTurn:  this.playerInTurn,
+      missions:      this.missions,
+      recalls:       this.recalls,
+      getPlayer:     this.getPlayer,
       getThisPlayer: this.getThisPlayer,
-      getCurrentMission: this.getCurrentMission,
-      setDialog: this.setDialog
+      getMission:    this.getMission,
+      setDialog:     this.setDialog
     }
   },
 
@@ -67,7 +57,7 @@ export default {
       return this.getPlayer(this.playerId);
     },
 
-    getCurrentMission() {
+    getMission() {
       const mission = this.missions.filter(mission => mission.status === '');
       return mission[0];
     },

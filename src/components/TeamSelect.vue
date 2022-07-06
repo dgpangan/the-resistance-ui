@@ -21,21 +21,21 @@
 
 <script>
 export default {
-  inject: ['players', 'playerId', 'getPlayer', 'missions', 'getCurrentMission', 'setDialog'],
+  inject: ['players', 'playerId', 'getPlayer', 'missions', 'getMission', 'setDialog'],
   data() {
     return {
-      currentMission: this.getCurrentMission()
+      currentMission: this.getMission()
     }
   },
   methods: {
     selectPlayer(id) {
       const player = this.getPlayer(id);
-      if (this.selectedPlayers() >= this.playerCount && !player.selected) {
+      if (this.selectedPlayers() >= this.currentMission.playerCount && !player.selected) {
         return false;
       }
       player.selected = !player.selected;
     },
-     selectedPlayers() {
+    selectedPlayers() {
       return this.players.filter(player => player.selected).length;
     },
 
