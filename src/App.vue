@@ -5,6 +5,7 @@
   <team-vote v-if="showDialog==='team-vote'"></team-vote>
   <team-vote-results v-if="showDialog==='team-vote-results'"></team-vote-results>
   <mission-vote v-if="showDialog==='mission-vote'"></mission-vote>
+  <mission-vote-results v-if="showDialog==='mission-vote-results'"></mission-vote-results>
 </template>
 
 <script>
@@ -14,13 +15,14 @@ import TeamSelect from './components/TeamSelect.vue';
 import TeamVote from './components/TeamVote.vue';
 import TeamVoteResults from './components/TeamVoteResults.vue';
 import MissionVote from './components/MissonVote.vue';
+import MissionVoteResults from './components/MissionVoteResults.vue';
 
 export default {
-  components: { TheBoard, CardDraw, TeamSelect, TeamVote, TeamVoteResults, MissionVote },
+  components: { TheBoard, CardDraw, TeamSelect, TeamVote, TeamVoteResults, MissionVote, MissionVoteResults },
 
   data() {
     return {
-      showDialog: 'mission-vote',
+      showDialog: 'mission-vote-results',
       missions: [
         { id: 0, playerCount: 2, status: 'success' },
         { id: 1, playerCount: 3, status: '' },
