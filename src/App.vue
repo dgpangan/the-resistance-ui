@@ -22,15 +22,15 @@ export default {
 
   data() {
     return {
-      showDialog: 'mission-vote-results',
+      showDialog: '',
       missions: [
-        { id: 0, playerCount: 2, status: 'success' },
+        { id: 0, playerCount: 2, status: '' },
         { id: 1, playerCount: 3, status: '' },
         { id: 2, playerCount: 2, status: '' },
         { id: 3, playerCount: 3, status: '' },
         { id: 4, playerCount: 3, status: '' },
       ],
-      cancellations: 2,
+      recalls: 0,
       players: [
         { id: 0, name: 'Darren',  isResistance: false,  selected: false, teamVote: '',        missionVote: ''        },
         { id: 1, name: 'Clarisa', isResistance: true,   selected: false, teamVote: 'approve', missionVote: 'success' },
@@ -49,7 +49,7 @@ export default {
       playerId: this.playerId,
       playerInTurn: this.playerInTurn,
       missions: this.missions,
-      cancellations: this.cancellations,
+      recalls: this.recalls,
       getPlayer: this.getPlayer,
       getThisPlayer: this.getThisPlayer,
       getCurrentMission: this.getCurrentMission,
